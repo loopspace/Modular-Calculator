@@ -1,0 +1,210 @@
+@font-face {
+  font-family: "Maths Font";
+  src: url("/fonts/MathsFont.ttf");
+}
+
+@font-face {
+  font-family: "Maths Gothic";
+  src: url("/fonts/MathsGothic.ttf");
+}
+
+@font-face {
+  font-family: "Maths Script";
+  src: url("/fonts/MathsScript.ttf");
+}
+
+#title p {
+/*  font-family: "Maths Font"; */
+  font-size: 1.5em;
+}
+
+.mathsfont {
+    font-family: "Maths Font";
+}
+.mathsscript {
+    font-family: "Maths Script";
+}
+.mathsgothic {
+    font-family: "Maths Gothic";
+}
+
+body {
+    font-family: "Lucida Sans Unicode";
+}
+
+html {
+    background-color: #AAAAAA;
+}
+
+#author, #date, #licence {
+    display: inline;
+    font-size: small;
+}
+#author:before {
+    content: "©";
+}
+
+#titlepage p {
+    display: inline;
+}
+
+pre code {
+    background: #eee;
+}
+
+#licence a {
+    padding: 1ex;
+}
+
+div.table table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 1pt 1ex;
+}
+
+div.table tr:first-child {
+    border-bottom: solid thin;
+}
+
+div.table tr:last-child {
+    border-bottom: solid thin;
+}
+
+.gentheorem .title {
+    font-weight: bold;
+    margin-left: -1.5ex;
+}
+.proof, .gentheorem {
+    padding: 0ex 0ex 0ex 3ex;
+    background: #f9f9f9;
+    border-radius: 1ex;
+}
+.gentheorem table.displaymaths, .proof table.displaymaths {
+    background: #f9f9f9;
+}
+
+.proof {
+    position: relative;
+}
+
+.proof .title {
+    font-style: italic;
+    margin-left: -1.5ex;
+}
+
+.proof .title:after {
+    content: ":";
+}
+
+.proof .body:before {
+    position: absolute;
+    bottom: 0;
+    right: 1ex;
+    content: '▢';
+}
+
+.proof .body {
+    padding-right: 2.5ex;
+}
+
+img.includegraphics {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+  border-radius: 15px;
+  padding: 15px;
+  background: white;
+}
+
+#toc {
+    height: 80%;
+}
+
+#toc ol {
+    padding-left: 0;
+    list-style-type: none;
+    height: 80%;
+    overflow: auto;
+}
+#toc ol ol {
+    padding-left: 10pt;
+}
+
+.marginpar div {
+    border: thin solid;
+    border-radius: 1ex;
+    padding: 0 1ex;
+    background: #eee;
+}
+
+.marginpar {
+    float: right;
+    clear: both;
+    overflow: visible;
+    width: 19ex;
+    padding: 0 2ex 0 2ex;
+    font-size: small;
+}
+
+.marginpar_src, .marginpar_tgt, .footnote_src, .footnote_tgt {
+    font-size: small;
+    vertical-align: super;
+}
+
+div.center {
+    text-align: center;
+}
+
+div.center table {
+    margin: 0px auto;
+}
+
+.caption {
+    text-align: center;
+}
+
+.Huge {
+    font-size: 250%
+}
+
+.huge {
+    font-size: 200%
+}
+
+.LARGE {
+    font-size: 180%
+}
+
+.Large {
+    font-size: 140%
+}
+
+.large {
+    font-size: 120%
+}
+
+.tiny {
+    font-size: 50%
+}
+
+.scriptsize {
+    font-size: 70%
+}
+
+table.displaymaths {
+    background-color: #eee;
+}
+
+ol.bibliography {
+    list-style: none outside none;
+}
+
+ol.bibliography span.listlabel {
+    float: left;
+    text-align: right;
+}
