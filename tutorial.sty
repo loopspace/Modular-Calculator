@@ -1,0 +1,26 @@
+\RequirePackage{expl3}
+\RequirePackage{xparse}
+\RequirePackage{environ}
+\ProvidesExplPackage {tutorial} {2015/10/05} {0.1} {Auxiliary functions for tutorials}
+
+\loadcss{css/mathml}
+\loadcss{css/numberedeqns}
+\loadcss{css/article}
+\loadfullcss{https://fonts.googleapis.com/css?family=Raleway:300}
+\loadcss[all~ and~ (max-width:~ 767px)]{css/small}
+\loadcss[all~ and~ (min-width:~ 768px)~ and~ (max-width:~ 1024px)]{css/medium}
+\loadcss[all~ and~ (min-width:~ 1025px)]{css/large}
+\loadcss{css/styles/vs}
+\loadjs{js/setwidth}
+\loadjs{lib/highlight.pack}
+\addjavascript{hljs.initHighlightingOnLoad();}
+\loadfulljs{http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=MML_HTMLorMML}
+%\SetLinkType{targetblank}
+
+\imode<text>
+{
+\SetHook{xhtm}{pre verbatim}{\tl_set:Nn \l__xhtm_code_tl {class="lua"}}
+}
+
+\author{loopspace}
+\cclicence{by-nc-nd}
