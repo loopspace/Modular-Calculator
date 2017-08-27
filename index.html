@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <title>The Modular Calculator</title>
+    <script type="text/javascript" src="calculator.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+<link href="css/article.css" media="all" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300" media="all" rel="stylesheet" type="text/css">
+<link href="css/small.css" media="all and (max-width: 767px)" rel="stylesheet" type="text/css">
+<link href="css/medium.css" media="all and (min-width: 768px) and (max-width: 1024px)" rel="stylesheet" type="text/css">
+<link href="css/large.css" media="all and (min-width: 1025px)" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="background"></div>
+    <div id="content">
+      <a id="Doc-Start"></a>
+      <div id="titlepage">
+<div id="title">
+<p>The Modular Calculator</p>
+</div>
+<div id="author">
+<p>loopspace</p>
+</div>
+<div id="date">
+<p>2017-08-27</p>
+</div><div id="licence">
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></p>
+</div></div>
+<p></p>
+<div id="toc">
+<p></p>
+
+<h1>Contents</h1>
+<p></p>
+<ol>
+<li id="Item.0">
+<p><a href="#Doc-Start">Calculator</a> </p>
+</li>
+<li id="Item.1">
+<p><a href="#about">About</a> </p>
+</li>
+<li id="Item.2">
+<p><a href="#instructions">Instructions</a> </p>
+</li>
+<li id="Item.3">
+<p><a href="#walkthroughs">Walkthroughs</a> </p>
+</li>
+</ol>
+<p></p>
+</div>
+
+    <div id="resultdiv">
+      <form id="form">
+	<table id="resulttbl">
+	  <tr>
+	    <th>Expression</th>
+	    <th></th>
+	    <th>Answer</th>
+	    <th>Modulus</th>
+	  </tr>
+	  <tbody id="results">
+	  </tbody>
+	  <tr>
+	    <td><input type="text" id="input"></td>
+	    <td><button type="button" id="calc">&equiv;</button></td>
+	    <td></td>
+	    <td><input type="text" id="clock"></td>
+	  </tr>
+	</table>
+	<input type="submit" id="submit" tabindex="-1" >
+      </form>
+    </div>
+    <div id="error">
+    </div>
+    <div>
+      <h3 id="about">About</h3>
+      <p>
+	This is a modular arithmetic calculator, inspired by wanting
+	to make it possible to experiment with the <em>mathematics</em> behind
+	cryptography.
+      </p>
+
+      <p>
+	That mathematics is the mathematics of <strong>modular
+	arithmetic</strong>.  We use this in many places in every day
+	life, the most obvious being <em>clock arithmetic</em> where
+	we wrap around the clock: 4 hours on from 11 o'clock is not 15
+	o'clock but 3 o'clock.
+      </p>
+
+      <p>
+	Modular arithmetic is easy enough to do with a small "clock
+	number" (aka the <em>modulus</em>) and with addition,
+	subtraction, and multiplication: simply do the arithmetic as
+	normal and then add or subtract the modulus until you get a
+	positive number less than the modulus.  But division and
+	powers can be problematic: division can't be done that way as
+	we can't allow fractions and taking powers can easily lead to
+	an arithmetic overflow where the numbers are just too big to
+	work with.
+      </p>
+
+      <p>
+	This calculator avoids those issues by reimplementing the
+	arithmetic algorithms using the modular reduction at every
+	stage.
+	This ensures that the numbers stay nice, though at the expense
+	of speed.
+      </p>
+
+      <h3 id="instructions">Instructions</h3>
+
+      <p>
+	In the first input box, enter an expression to be worked out.
+	At the moment, it only handles a single expression at a time.
+	In the second input box, put the <em>modulus</em> to be used.
+	Valid expressions are things like the following:
+      </p>
+      <table id="examples">
+	<tr>
+	  <td> <code>7 + 8</code> </td>
+	  <td>This will compute the sum of 7 and 8 modulo the
+	    modulus.</td>
+	</tr>
+	<tr>
+	  <td> <code>7 - 8</code> </td>
+	  <td>This will subtract 8 from 7 modulo the
+	    modulus.</td>
+	</tr>
+	<tr>
+	  <td> <code>7 * 8</code> </td>
+	  <td>This will compute the product of 7 and 8 modulo the
+	    modulus.</td>
+	</tr>
+	<tr>
+	  <td> <code>7 / 8</code> </td>
+	  <td>This will try to divide 7 by 8 modulo the
+	    modulus.
+	    This tries to find a number <em>k</em> such that
+	    8<em>k</em> &equiv; 7 modulo the modulus.
+	    This might not exist, or there might be more than one
+	    answer (in which case it gives just one answer).
+	  </td>
+	</tr>
+	<tr>
+	  <td> <code>7 ^ 8</code> </td>
+	  <td>This will raise 7 to the 8th power modulo the
+	    modulus.
+	  </td>
+	</tr>
+      </table>
+      <h3 id="walkthroughs">Workthroughs</h3>
+      <ul>
+	<li><a href="NumberTheory.html" target="_blank">An introduction</a> to the theory
+	  of modular arithmetic, ending with an example of using it to
+	  securely share a secret.
+      </ul>
+    </div>
+      </div>
+  </body>
+</html>

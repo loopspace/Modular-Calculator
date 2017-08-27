@@ -1,0 +1,39 @@
+#submit {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+}
+
+#error {
+    display: none;
+    color: red;
+}
+
+#resulttbl td:nth-child(2) {
+    text-align: center;
+}
+#resulttbl td:nth-child(1) {
+    text-align: right;
+}
+
+#clock {
+    width: 12ex;
+}
+
+#examples {
+    width: 75%;
+    margin: 0px auto;
+}
+
+#examples td {
+    vertical-align: top;
+}
+
+#examples td:first-child code {
+    white-space: nowrap;
+}
+
+#examples td:first-child {
+    padding-right: 1em;
+}
