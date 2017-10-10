@@ -56,8 +56,8 @@ function parse(txt,mod) {
     var a,b,m;
     m = txt.match(/^\s*(\d+)\s*([-+*/^])\s*(\d+)\s*$/);
     if (m) {
-	a = parseInt(m[1]) % mod;
-	b = parseInt(m[3]) % mod;
+	a = parseInt(m[1]);
+	b = parseInt(m[3]);
 	if (m[2] == '+') {
 	    return add(a,b,mod);
 	}
@@ -84,10 +84,14 @@ function parse(txt,mod) {
 }
 
 function add(a,b,m) {
+    a %= m;
+    b %= m;
     return (a + b) % m;
 }
 
 function sub(a,b,m) {
+    a %= m;
+    b %= m;
     var r = (a - b) % m;
     if (r < 0) {
 	r += m;
@@ -96,6 +100,8 @@ function sub(a,b,m) {
 }
 
 function mul(a,b,m) {
+    a %= m;
+    b %= m;
     var r = 0;
     for (i = 0; i < a; i++) {
 	r += b;
@@ -105,6 +111,8 @@ function mul(a,b,m) {
 }
 
 function div(a,b,m) {
+    a %= m;
+    b %= m;
     var r = a;
     var i = 0;
     while (r != 0 || r != a) {
@@ -121,7 +129,7 @@ function div(a,b,m) {
 function pow(a,b,m) {
     var c,p,r;
     r = 1;
-    p = a;
+    p = a % m;
     while (b > 0) {
 	c = b & 1;
 	b >>= 1;
@@ -132,3 +140,4 @@ function pow(a,b,m) {
     }
     return r;
 }
+
