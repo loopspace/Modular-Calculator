@@ -53,10 +53,11 @@ function error(msg) {
 }
 
 function parse(txt,mod) {
-    var m = txt.match(/^\s*(\d+)\s*([-+*/^])\s*(\d+)\s*$/);
+    var a,b,m;
+    m = txt.match(/^\s*(\d+)\s*([-+*/^])\s*(\d+)\s*$/);
     if (m) {
-	var a = parseInt(m[1]) % mod;
-	var b = parseInt(m[3]) % mod;
+	a = parseInt(m[1]) % mod;
+	b = parseInt(m[3]) % mod;
 	if (m[2] == '+') {
 	    return add(a,b,mod);
 	}
@@ -72,6 +73,11 @@ function parse(txt,mod) {
 	if (m[2] == '^') {
 	    return pow(a,b,mod);
 	}
+    }
+    m = txt.match(/^\s*(\d+)\s*$/);
+    if (m) {
+	a = parseInt(m[1]) % mod;
+	return a;
     }
     error('Invalid expression; see below.');
     return false;
@@ -119,11 +125,10 @@ function pow(a,b,m) {
     while (b > 0) {
 	c = b & 1;
 	b >>= 1;
-	p = mul(p,p,m);
-	console.log(b,c,p);
 	if (c == 1) {
 	    r = mul(r,p,m);
 	}
+	p = mul(p,p,m);
     }
     return r;
 }
